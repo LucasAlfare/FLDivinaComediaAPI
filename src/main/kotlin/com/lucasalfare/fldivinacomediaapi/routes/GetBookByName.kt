@@ -13,7 +13,10 @@ fun Route.getBookByName() {
     try {
       requireNotNull(queryBookName)
       val res = DatabaseManager.getBookByName(queryBookName)
-      call.respond(HttpStatusCode.OK, res)
+      call.respond(
+        status = if (res != null) HttpStatusCode.OK else HttpStatusCode.NotFound,
+        message = res ?: "Was not found in database any book named as [$queryBookName]."
+      )
     } catch (e: Exception) {
       call.respond(
         status = HttpStatusCode.BadRequest,

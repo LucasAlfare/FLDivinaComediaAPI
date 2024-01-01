@@ -73,13 +73,23 @@ object DatabaseManager {
    * @return A [Book] object representing the book, its chapters, and associated notes.
    */
   suspend fun getBookByName(targetBookName: String) = dbQuery {
-    // TODO: refactor to return "singleOrNull"
-    Books.select { Books.name eq targetBookName }.map {
+//    Books.select { Books.name eq targetBookName }.map {
+//      Book(
+//        id = it[Books.id].value,
+//        bookName = targetBookName,
+//        chapters = getChaptersByBookName(targetBookName)
+//      )
+//    }
+
+    val search = Books.select { Books.name eq targetBookName }.singleOrNull()
+    if (search != null) {
       Book(
-        id = it[Books.id].value,
-        bookName = targetBookName,
+        id = search[Books.id].value,
+        bookName = search[Books.name],
         chapters = getChaptersByBookName(targetBookName)
       )
+    } else {
+      null
     }
   }
 
