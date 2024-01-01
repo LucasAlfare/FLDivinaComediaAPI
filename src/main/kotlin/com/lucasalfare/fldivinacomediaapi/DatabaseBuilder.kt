@@ -34,14 +34,14 @@ object DatabaseBuilder {
    * @param targetBookId The ID of the target book.
    */
   suspend fun createChaptersForBookNameAndId(targetBookName: String, targetBookId: Int) {
-    val chaptersRanges = when (targetBookId) {
+    val chaptersRange = when (targetBookId) {
       BOOK_INFERNO_DEFAULT_ID -> (1..34)
       BOOK_PURGATORY_DEFAULT_ID -> (1..33)
       else -> (1..6)
     }
 
-    chaptersRanges.forEach { current ->
-      val rawChapterContent = ResourceLoader.loadAsString("$targetBookName/$current")
+    chaptersRange.forEach { current ->
+      val rawChapterContent = ResourceLoader.loadAsString("prosa/$targetBookName/$current")
       DatabaseManager.dbQuery {
         Chapters.insert {
           it[order] = current
@@ -61,7 +61,7 @@ object DatabaseBuilder {
    * @throws IllegalArgumentException if there is an error parsing the chapter order from a note.
    */
   suspend fun createNotesForBook(targetBookName: String, targetBookId: Int) {
-    val raw = ResourceLoader.loadAsString("$targetBookName/notas")
+    val raw = ResourceLoader.loadAsString("prosa/$targetBookName/notas")
     raw.split("\n").forEach { currentNote ->
       val parsedChapterOrder = try {
         buildString {
