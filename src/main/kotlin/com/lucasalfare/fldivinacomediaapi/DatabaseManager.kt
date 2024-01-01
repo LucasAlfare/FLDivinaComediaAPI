@@ -34,17 +34,35 @@ object DatabaseManager {
 
     if (buildDataFromRaw) {
       // Build sample data for books, chapters, and notes.
-      DatabaseBuilder.createBook("inferno")
-      DatabaseBuilder.createBook("purgatorio")
-      DatabaseBuilder.createBook("paraiso")
+      DatabaseBuilder.createBook(BOOK_INFERNO_DEFAULT_NAME)
+      DatabaseBuilder.createBook(BOOK_PURGATORY_DEFAULT_NAME)
+      DatabaseBuilder.createBook(BOOK_PARADISE_DEFAULT_NAME)
 
-      DatabaseBuilder.createChaptersForBookNameAndId("inferno", BOOK_INFERNO_DEFAULT_ID)
-      DatabaseBuilder.createChaptersForBookNameAndId("purgatorio", BOOK_PURGATORY_DEFAULT_ID)
-      DatabaseBuilder.createChaptersForBookNameAndId("paraiso", BOOK_PARADISE_DEFAULT_ID)
+      DatabaseBuilder.createChaptersForBookNameAndId(
+        BOOK_INFERNO_DEFAULT_NAME,
+        BOOK_INFERNO_DEFAULT_ID
+      )
+      DatabaseBuilder.createChaptersForBookNameAndId(
+        BOOK_PURGATORY_DEFAULT_NAME,
+        BOOK_PURGATORY_DEFAULT_ID
+      )
+      DatabaseBuilder.createChaptersForBookNameAndId(
+        BOOK_PARADISE_DEFAULT_NAME,
+        BOOK_PARADISE_DEFAULT_ID
+      )
 
-      DatabaseBuilder.createNotesForBook("inferno", BOOK_INFERNO_DEFAULT_ID)
-      DatabaseBuilder.createNotesForBook("purgatorio", BOOK_PURGATORY_DEFAULT_ID)
-      DatabaseBuilder.createNotesForBook("paraiso", BOOK_PARADISE_DEFAULT_ID)
+      DatabaseBuilder.createNotesForBook(
+        BOOK_INFERNO_DEFAULT_NAME,
+        BOOK_INFERNO_DEFAULT_ID
+      )
+      DatabaseBuilder.createNotesForBook(
+        BOOK_PURGATORY_DEFAULT_NAME,
+        BOOK_PURGATORY_DEFAULT_ID
+      )
+      DatabaseBuilder.createNotesForBook(
+        BOOK_PARADISE_DEFAULT_NAME,
+        BOOK_PARADISE_DEFAULT_ID
+      )
     }
   }
 

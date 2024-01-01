@@ -14,6 +14,8 @@ object Books : IntIdTable("Books") {
 
 /**
  * Database table for storing information about chapters.
+ *
+ * TODO: include column for "title"
  */
 object Chapters : IntIdTable("Chapters") {
   /**

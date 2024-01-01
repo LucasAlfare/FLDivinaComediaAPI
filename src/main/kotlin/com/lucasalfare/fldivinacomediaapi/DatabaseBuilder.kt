@@ -19,8 +19,8 @@ object DatabaseBuilder {
       Books.insert {
         it[name] = bookName
         it[id] = when (bookName) {
-          "inferno" -> BOOK_INFERNO_DEFAULT_ID
-          "purgatorio" -> BOOK_PURGATORY_DEFAULT_ID
+          BOOK_INFERNO_DEFAULT_NAME -> BOOK_INFERNO_DEFAULT_ID
+          BOOK_PURGATORY_DEFAULT_NAME -> BOOK_PURGATORY_DEFAULT_ID
           else -> BOOK_PARADISE_DEFAULT_ID
         }
       }
