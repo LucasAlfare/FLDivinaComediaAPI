@@ -1,5 +1,8 @@
 package com.lucasalfare.fldivinacomediaapi.routes
 
+import com.lucasalfare.fldivinacomediaapi.BOOK_INFERNO_DEFAULT_NAME
+import com.lucasalfare.fldivinacomediaapi.BOOK_PARADISE_DEFAULT_NAME
+import com.lucasalfare.fldivinacomediaapi.BOOK_PURGATORY_DEFAULT_NAME
 import com.lucasalfare.fldivinacomediaapi.DatabaseManager
 import io.ktor.http.*
 import io.ktor.server.application.*
@@ -10,9 +13,9 @@ fun Route.getAllBooks() {
   get("/books") {
     try {
       val books = listOf(
-        DatabaseManager.getBookByName("inferno"),
-        DatabaseManager.getBookByName("purgatorio"),
-        DatabaseManager.getBookByName("paraiso")
+        DatabaseManager.getBookByName(BOOK_INFERNO_DEFAULT_NAME),
+        DatabaseManager.getBookByName(BOOK_PURGATORY_DEFAULT_NAME),
+        DatabaseManager.getBookByName(BOOK_PARADISE_DEFAULT_NAME)
       )
 
       call.respond(HttpStatusCode.OK, books)
