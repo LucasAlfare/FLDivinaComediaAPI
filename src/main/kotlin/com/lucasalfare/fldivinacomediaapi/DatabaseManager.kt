@@ -55,6 +55,7 @@ object DatabaseManager {
    * @return A [Book] object representing the book, its chapters, and associated notes.
    */
   suspend fun getBookByName(targetBookName: String) = dbQuery {
+    // TODO: refactor to return "singleOrNull"
     Books.select { Books.name eq targetBookName }.map {
       Book(
         id = it[Books.id].value,
