@@ -6,9 +6,18 @@ This project contains the enviroment to provides a very simple web API that offe
 
 Also, is important to know that all the texts here was developed by Helder da Rocha, the man who adapted the story from poem text style to prose. In the future we should to finish the last book (paradise) and include english versions. Also, we should to offer original poem versions, as well.
 
-The API itself is not online to be accessed over the internet (yet). But this project can run under a device that has [Docker](https://www.docker.com/) installed. Also, if you have the [Gradle tool](https://gradle.org/) installed you can run the helper script [flow.bat](flow.bat), which can run everything needed to this API becomes UP under the URL `http://127.0.0.1:9999/`.
+The API itself is not online to be accessed over the internet (yet) but can run under a device that has [Docker](https://www.docker.com/) installed. You can run the helper script [flow1.bat](flow1.bat), which setup everything needed to put this API UP, under the URL `http://127.0.0.1:9999/`.
 
 The raw data at all is written in portuguese, which is my main language and the default language of the adaptation made by Helder da Rocha. For this reason, at this point, only portuguese is supported. Anyway, we really plan to offer all the content present here in english, as well. However, this should be done after this API becomes a bit more tested in a minimal production environment or so.
+
+# Tech-stack used
+
+This project uses some distinct tools to work:
+- `Kotlin` as main programming language;
+- `Ktor` as web server;
+- `PostgreSQL` as database handler;
+- `Gradle` to build and manage dependencies of the Kotlin code;
+- `Docker` to download all needed environment and make the application run inside virtual containers.
 
 # Available values
 
